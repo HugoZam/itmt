@@ -1,0 +1,27 @@
+<% include partials/header %>
+  <div class="photocontent">
+    <div class style="display:flex; flex-wrap: wrap;">
+      <div class>
+        <% if(files){ %>
+          <% files.forEach(function(file) { %>
+            <div class="card">
+              <div class="thumbnail">
+              <% if(file.isImage) { %>
+                <img src="image/<%= file.filename %>">
+                <% if(currentUser && file.metadata.author == (currentUser.username)){ %>
+                  <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+                  <button class="btn btn-danger btn-block mt-4">Delete</button>
+                  </form>
+                <% } %>
+                <% } else { %>
+                  <%= file.filename %>
+                    <% } %>
+            </div>
+            <% }) %>
+              <% } else { %>
+                <p>No Image is Exists!</p>
+                <% } %>
+      </div>
+    </div>
+  </div>
+<% include partials/footer %>

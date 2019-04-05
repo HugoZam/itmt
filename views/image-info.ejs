@@ -1,0 +1,28 @@
+<% include partials/header %>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-6 m-auto">
+            <div class="card card-body mb-3">
+                <strong><%= file.metadata.author %></strong><br>
+                <strong><%= file.uploadDate %></strong><br>
+                <img class="img-responsive" src="/image/<%= file.filename %>">
+                <br><br>
+                <% comments.forEach(function(comment) { %>
+                <strong><%= comment.user %></strong>&nbsp&nbsp<%= comment.comment %><br>
+                <% }) %>
+                <hr>
+                <form method="POST" action="/<%= file.filename %>/new-comments">
+                 <input type="text" name="comment" placeholder="Add comment">&nbsp&nbsp
+                <button class="btn btn-primary btn-lg">post</button><br>
+                </form>
+                <% if(currentUser && file.metadata.author == (currentUser.username) || currentUser && currentUser.isAdmin == true){ %>
+                    <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+                    <button class="btn btn-danger btn-block mt-4">Delete</button>
+                    </form>
+                  <% } %>
+            </div>
+            <a class="btn btn-primary btn-lg" href="/Results">See another images</a>
+      </div>
+    </div>
+  </div>
+<% include partials/footer %>

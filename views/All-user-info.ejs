@@ -1,0 +1,15 @@
+<% include partials/header %>
+  <div class="photocontent">
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+          <% users.forEach(function(user) { %>
+                <ul>
+                <li><h4><p>User Name: <%= user.username%></p></h4></li>&nbsp
+                <li><h4><p>First Name: &nbsp<%= user.firstName%></p></h4></li>&nbsp
+                <li><h4><p>Last Name: &nbsp<%= user.lastName%></p></h4></li>&nbsp
+                <li><h4><p>Email: &nbsp<%= user.email%></p></h4></li>&nbsp
+                </ul>
+                <hr>
+            <% }) %>
+      </div>
+    </div>
+<% include partials/footer %>

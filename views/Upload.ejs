@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+  <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Uploads</h1>
+        <div style="width: 30%; margin: 25px auto;">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            Image <br><input type="file" name="file" id="file" class="custom-file-input"><br>
+            Tag <br><input type="text" name="tag" id="tag"><br>
+            Description<br><input type="text" name="description" id="description"><br>
+            <label for="file" class="custom-file-label" name="filename"></label>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary btn-block"><br>
+          <a href="/" class="btn btn-default btn-lg">Cancel</a>
+        </form>
+      </div>
+  </div>
+<% include partials/footer %>

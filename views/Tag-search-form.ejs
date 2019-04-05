@@ -1,0 +1,17 @@
+<% include partials/header %>
+  <div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Search By Tag</h1>
+        <div style="width: 30%; margin: 25px auto;">
+        <form action="/Tag-Result" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            Tag<br><input type="text" name="tag" id="tag"><br>
+          </div>
+          <br>
+          <input type="submit" value="Search" class="btn btn-primary btn-block"><br>
+          <a href="/" class="btn btn-default btn-lg">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+<% include partials/footer %>
